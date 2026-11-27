@@ -4,406 +4,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MT MEIAS | Performance em cada passo</title>
-<meta name="description" content="MT MEIAS - Meias esportivas para acompanhar seu ritmo. Conheça nossas cores e peça pelo WhatsApp.">
+<title>MT MEIAS | RUN Collection</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,Arial,sans-serif;color:#111;background:white}
+a{text-decoration:none;color:inherit}
+:root{--pink:#ff368c;--black:#101010}
 
-:root {
-  --black: #101010;
-  --pink: #ff368c;
-  --white: #fff;
-  --gray: #f4f4f4;
+header{
+background:#101010;color:white;padding:20px 7%;
+display:flex;justify-content:space-between;align-items:center;
+position:sticky;top:0;z-index:10;gap:15px
 }
+.logo{font-size:27px;font-weight:900}
+.logo span{color:var(--pink)}
+nav{display:flex;gap:22px;font-size:12px;font-weight:800}
+nav a:hover{color:var(--pink)}
+.nav-button{background:var(--pink);padding:12px 18px;border-radius:30px}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.hero{
+background:linear-gradient(120deg,#101010,#292029);
+color:white;padding:80px 8%;min-height:540px;
+display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:25px
 }
+.hero small{color:var(--pink);font-weight:900;letter-spacing:4px}
+.hero h1{font-size:clamp(42px,6vw,72px);line-height:1.08;margin:20px 0}
+.hero h1 span{color:var(--pink)}
+.hero p{color:#ccc;line-height:1.8;margin-bottom:28px;max-width:480px}
+.btn{display:inline-block;background:var(--pink);color:white;padding:16px 25px;border-radius:30px;font-weight:900;font-size:12px}
+.btn:hover{background:white;color:#111}
+.hero-image{display:flex;justify-content:center;align-items:center}
+.hero-image svg{width:100%;max-width:330px;filter:drop-shadow(0 15px 20px #0008);transform:rotate(-10deg)}
 
-html { scroll-behavior: smooth; }
+.strip{background:var(--pink);color:white;text-align:center;padding:17px;font-size:12px;font-weight:900;letter-spacing:3px}
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  color: var(--black);
-  background: white;
+section{padding:75px 7%}
+.heading{text-align:center;margin-bottom:40px}
+.heading small{color:var(--pink);font-weight:900;letter-spacing:4px}
+.heading h2{font-size:clamp(28px,4vw,42px);margin:12px 0;font-weight:900}
+.heading p{font-size:13px;color:#777}
+
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}
+.product{border:1px solid #eee;border-radius:15px;overflow:hidden;transition:.3s}
+.product:hover{transform:translateY(-6px);box-shadow:0 12px 30px #0002}
+.product-image{height:260px;background:#f4f4f4;display:flex;align-items:center;justify-content:center;position:relative}
+.product-image svg{height:92%;max-width:90%}
+.tag{position:absolute;top:13px;left:13px;background:var(--pink);color:white;padding:7px 12px;border-radius:20px;font-size:9px;font-weight:900}
+.product-info{padding:20px}
+.product-info h3{font-size:16px;font-weight:900}
+.product-info p{font-size:11px;color:#777;margin:9px 0}
+.price{font-size:23px;font-weight:900;margin:13px 0}
+.color-row{display:flex;gap:9px;margin:15px 0}
+.swatch{width:23px;height:23px;border-radius:50%;border:2px solid #ddd;cursor:pointer}
+.swatch.active{outline:2px solid var(--pink);outline-offset:2px}
+.add{width:100%;padding:14px;background:#111;color:white;border:0;border-radius:8px;font-weight:900;cursor:pointer}
+.add:hover{background:var(--pink)}
+
+.benefits{background:#101010;color:white}
+.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center}
+.benefit-icon{font-size:35px;margin-bottom:15px}
+.benefit h3{color:var(--pink);font-size:15px;margin-bottom:10px}
+.benefit p{color:#aaa;font-size:12px;line-height:1.8}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-art{background:linear-gradient(135deg,#ff368c,#f5b4d0);border-radius:20px;min-height:300px;display:flex;justify-content:center;align-items:center;color:white;font-size:60px;font-weight:900}
+.about-art span{color:#111}
+.about h2{font-size:37px;margin:15px 0}
+.about p{color:#777;font-size:13px;line-height:1.9;margin-bottom:20px}
+
+.cart-section{background:#f5f5f5}
+.cart-box{max-width:750px;margin:auto;background:white;padding:25px;border-radius:15px}
+.cart-box h3{margin-bottom:20px}
+.cart-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 0;border-bottom:1px solid #eee;font-size:12px}
+.quantity{display:flex;align-items:center;gap:10px}
+.quantity button{border:0;background:#ffe5f0;border-radius:50%;width:27px;height:27px;cursor:pointer;font-weight:bold}
+.remove{color:red;background:none!important}
+.total{text-align:right;font-size:23px;font-weight:900;padding:22px 0}
+.checkout{width:100%;background:#25d366;color:white;border:0;border-radius:8px;padding:16px;font-weight:900;cursor:pointer}
+
+.social{text-align:center;background:#ffe5f0}
+.social h2{font-size:35px;margin:15px}
+.social p{font-size:13px;color:#777;margin-bottom:22px}
+.instagram{display:inline-block;background:#111;color:white;padding:15px 25px;border-radius:30px;font-size:12px;font-weight:900}
+
+footer{background:#101010;color:white;text-align:center;padding:40px 15px}
+footer p{font-size:11px;color:#999;line-height:2}
+
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:white;padding:15px 20px;border-radius:40px;font-size:12px;font-weight:900;z-index:20}
+
+@media(max-width:800px){
+header{padding:15px 5%}
+nav{gap:12px}
+nav a:not(.nav-button){display:none}
+.hero{grid-template-columns:1fr;text-align:center;padding:55px 7%}
+.hero p{margin:0 auto 25px}
+.hero-image svg{max-width:260px}
+.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product-image{height:190px}
+.product-info{padding:12px}
+.product-info h3{font-size:12px}
+.product-info p{font-size:9px}
+.price{font-size:19px}
+.benefit-grid{grid-template-columns:1fr}
+.about{grid-template-columns:1fr}
+section{padding:55px 5%}
 }
-
-a { text-decoration: none; color: inherit; }
-
-header {
-  background: #101010;
-  color: white;
-  padding: 20px 7%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.logo {
-  font-size: 29px;
-  font-weight: 900;
-  letter-spacing: -2px;
-}
-
-.logo span { color: var(--pink); }
-
-nav {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-nav a:hover { color: var(--pink); }
-
-.nav-button {
-  background: var(--pink);
-  padding: 12px 20px;
-  border-radius: 30px;
-  color: white;
-}
-
-.hero {
-  min-height: 580px;
-  padding: 75px 8%;
-  background:
-    radial-gradient(circle at 80% 40%, #383838 0, transparent 35%),
-    linear-gradient(120deg, #101010, #222);
-  color: white;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 30px;
-  overflow: hidden;
-}
-
-.hero-tag {
-  color: var(--pink);
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 4px;
-  margin-bottom: 22px;
-}
-
-.hero h1 {
-  font-size: clamp(45px, 6vw, 76px);
-  line-height: 1.03;
-  font-weight: 900;
-  letter-spacing: -4px;
-  margin-bottom: 25px;
-}
-
-.hero h1 span { color: var(--pink); }
-
-.hero p {
-  color: #ccc;
-  font-size: 16px;
-  line-height: 1.8;
-  max-width: 460px;
-  margin-bottom: 32px;
-}
-
-.cta {
-  display: inline-block;
-  background: var(--pink);
-  color: white;
-  padding: 17px 27px;
-  border-radius: 40px;
-  font-weight: 800;
-  font-size: 13px;
-  transition: .3s;
-}
-
-.cta:hover {
-  transform: translateY(-4px);
-  background: #ed1676;
-}
-
-.hero-art {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.hero-art img {
-  width: 100%;
-  max-width: 460px;
-  filter: drop-shadow(0 20px 30px #0008);
-  transform: rotate(-9deg);
-}
-
-.hero-circle {
-  position: absolute;
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
-  background: var(--pink);
-  opacity: .16;
-  filter: blur(3px);
-}
-
-.strip {
-  background: var(--pink);
-  color: white;
-  padding: 17px 10px;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 3px;
-}
-
-.section {
-  padding: 90px 8%;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.section-title small {
-  color: var(--pink);
-  font-weight: 900;
-  letter-spacing: 4px;
-  font-size: 11px;
-}
-
-.section-title h2 {
-  font-size: clamp(30px, 4vw, 44px);
-  font-weight: 900;
-  margin-top: 12px;
-  letter-spacing: -2px;
-}
-
-.section-title p {
-  color: #777;
-  margin-top: 12px;
-  font-size: 14px;
-}
-
-.products {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-}
-
-.product {
-  background: #f5f5f5;
-  border-radius: 18px;
-  overflow: hidden;
-  transition: .3s;
-}
-
-.product:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px #00000012;
-}
-
-.product-image {
-  height: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(145deg, #f9f9f9, #eaeaea);
-  padding: 25px;
-}
-
-.product-image img {
-  height: 100%;
-  max-width: 90%;
-  object-fit: contain;
-  transition: .3s;
-}
-
-.product:hover .product-image img {
-  transform: scale(1.08) rotate(-5deg);
-}
-
-.product-info {
-  background: white;
-  padding: 22px;
-}
-
-.product-info h3 {
-  font-size: 19px;
-  font-weight: 900;
-}
-
-.product-info p {
-  color: #888;
-  font-size: 12px;
-  margin: 8px 0 17px;
-}
-
-.product-button {
-  display: block;
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 13px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 800;
-  transition: .3s;
-}
-
-.product-button:hover { background: var(--pink); }
-
-.benefits {
-  background: #101010;
-  color: white;
-  padding: 75px 8%;
-}
-
-.benefit-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 35px;
-  text-align: center;
-}
-
-.benefit-icon {
-  font-size: 37px;
-  margin-bottom: 18px;
-}
-
-.benefit h3 {
-  font-size: 17px;
-  margin-bottom: 12px;
-}
-
-.benefit p {
-  color: #aaa;
-  font-size: 13px;
-  line-height: 1.7;
-}
-
-.about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 60px;
-}
-
-.about-art {
-  background: var(--pink);
-  border-radius: 20px;
-  min-height: 340px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 65px;
-  font-weight: 900;
-  letter-spacing: -6px;
-}
-
-.about-art span { color: #111; }
-
-.about h2 {
-  font-size: 39px;
-  font-weight: 900;
-  line-height: 1.1;
-  margin: 15px 0;
-}
-
-.about p {
-  color: #777;
-  font-size: 14px;
-  line-height: 1.9;
-  margin-bottom: 25px;
-}
-
-.social {
-  text-align: center;
-  background: #f5f5f5;
-  padding: 75px 20px;
-}
-
-.social h2 {
-  font-size: 35px;
-  font-weight: 900;
-  margin: 15px 0;
-}
-
-.social p {
-  color: #777;
-  margin-bottom: 25px;
-  font-size: 14px;
-}
-
-.instagram {
-  display: inline-block;
-  background: #111;
-  color: white;
-  padding: 16px 30px;
-  border-radius: 40px;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-footer {
-  background: #101010;
-  color: white;
-  padding: 40px 8%;
-  text-align: center;
-}
-
-footer .logo { margin-bottom: 15px; }
-
-footer p {
-  color: #888;
-  font-size: 12px;
-  line-height: 2;
-}
-
-.whatsapp-float {
-  position: fixed;
-  right: 23px;
-  bottom: 23px;
-  z-index: 200;
-  background: #25D366;
-  color: white;
-  border-radius: 50px;
-  padding: 16px 21px;
-  font-weight: 900;
-  font-size: 13px;
-  box-shadow: 0 5px 20px #0003;
-}
-
-@media(max-width: 800px) {
-  header { padding: 17px 5%; }
-  nav { gap: 12px; font-size: 10px; }
-  nav a:not(.nav-button) { display: none; }
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding: 65px 7%;
-  }
-  .hero p { margin: 0 auto 28px; }
-  .hero-art img { max-width: 310px; }
-  .hero-circle { width: 250px; height: 250px; }
-  .products { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .product-image { height: 190px; }
-  .product-info { padding: 14px; }
-  .product-info h3 { font-size: 15px; }
-  .product-info p { font-size: 10px; }
-  .benefit-grid { grid-template-columns: 1fr; }
-  .about { grid-template-columns: 1fr; gap: 30px; }
-  .about-art { min-height: 230px; }
-  .section { padding: 65px 5%; }
-}
-
-@media(max-width: 380px) {
-  .products { grid-template-columns: 1fr; }
+@media(max-width:390px){
+.products{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -411,176 +122,252 @@ footer p {
 <body>
 
 <header>
-  <a href="#" class="logo">MT<span>.</span> MEIAS</a>
-  <nav>
-    <a href="#inicio">INÍCIO</a>
-    <a href="#produtos">PRODUTOS</a>
-    <a href="#sobre">SOBRE</a>
-    <a href="https://instagram.com/mt_meias" target="_blank">INSTAGRAM</a>
-    <a class="nav-button" href="https://wa.me/5519996678210">COMPRAR</a>
-  </nav>
+<a class="logo" href="#inicio">MT<span>.</span> MEIAS</a>
+<nav>
+<a href="#inicio">INÍCIO</a>
+<a href="#produtos">PRODUTOS</a>
+<a href="#sobre">SOBRE</a>
+<a href="https://instagram.com/mt_meias" target="_blank">INSTAGRAM</a>
+<a class="nav-button" href="https://wa.me/5519996678210">COMPRAR</a>
+</nav>
 </header>
 
 <section class="hero" id="inicio">
-  <div>
-    <div class="hero-tag">MT MEIAS • SPORT COLLECTION</div>
-    <h1>SEU RITMO.<br>SUA <span>ATITUDE.</span></h1>
-    <p>
-      Mais estilo, personalidade e conforto para acompanhar
-      você em cada movimento. Escolha sua cor e vá mais longe!
-    </p>
-    <a href="#produtos" class="cta">CONHEÇA NOSSAS MEIAS →</a>
-  </div>
-
-  <div class="hero-art">
-    <div class="hero-circle"></div>
-    <img src="https://placehold.co/600x600/242424/ff368c?text=MT+MEIAS" alt="MT Meias">
-  </div>
+<div>
+<small>MT MEIAS • RUN COLLECTION</small>
+<h1>SEU RITMO.<br>SUA <span>ATITUDE.</span></h1>
+<p>Meias esportivas de cano alto com a identidade RUN. Escolha sua cor favorita e leve mais estilo para cada passo!</p>
+<a class="btn" href="#produtos">CONHEÇA NOSSA COLEÇÃO →</a>
+</div>
+<div class="hero-image" id="hero-sock"></div>
 </section>
 
-<div class="strip">
-  PERFORMANCE • ESTILO • MOVIMENTO • MT MEIAS
+<div class="strip">RUN • ESTILO • MOVIMENTO • PERSONALIDADE • MT MEIAS</div>
+
+<section id="produtos">
+<div class="heading">
+<small>NOSSA COLEÇÃO</small>
+<h2>COLEÇÃO RUN</h2>
+<p>Escolha sua cor favorita!</p>
 </div>
-
-<section class="section" id="produtos">
-  <div class="section-title">
-    <small>NOSSA COLEÇÃO</small>
-    <h2>ESCOLHA SUA COR.</h2>
-    <p>Uma cor para cada estilo. Qual combina com você?</p>
-  </div>
-
-  <div class="products" id="product-list"></div>
+<div class="products" id="product-list"></div>
 </section>
 
 <section class="benefits">
-  <div class="section-title">
-    <small>MT MEIAS</small>
-    <h2 style="color:white">VISTA SEU MOVIMENTO.</h2>
-  </div>
-
-  <div class="benefit-grid">
-    <div class="benefit">
-      <div class="benefit-icon">🏃</div>
-      <h3>ESPÍRITO ESPORTIVO</h3>
-      <p>Para acompanhar sua rotina de movimento e atividade física.</p>
-    </div>
-    <div class="benefit">
-      <div class="benefit-icon">🎨</div>
-      <h3>SEU ESTILO</h3>
-      <p>Seis opções de cores para combinar com sua personalidade.</p>
-    </div>
-    <div class="benefit">
-      <div class="benefit-icon">⚡</div>
-      <h3>MAIS ATITUDE</h3>
-      <p>Uma marca feita para quem gosta de se movimentar com estilo.</p>
-    </div>
-  </div>
+<div class="heading">
+<small>MT MEIAS</small>
+<h2 style="color:white">VISTA SEU MOVIMENTO.</h2>
+</div>
+<div class="benefit-grid">
+<div class="benefit">
+<div class="benefit-icon">🧦</div>
+<h3>MODELO RUN</h3>
+<p>Meias esportivas de cano alto com marca RUN.</p>
+</div>
+<div class="benefit">
+<div class="benefit-icon">🎨</div>
+<h3>5 CORES</h3>
+<p>Pink, preto, branco, azul e verde.</p>
+</div>
+<div class="benefit">
+<div class="benefit-icon">🏃</div>
+<h3>ESTILO ESPORTIVO</h3>
+<p>Mais personalidade para seus movimentos.</p>
+</div>
+</div>
 </section>
 
-<section class="section about" id="sobre">
-  <div class="about-art">MT<span>.</span> MEIAS</div>
-  <div>
-    <small style="color:#ff368c;font-weight:900;letter-spacing:3px">SOBRE A MARCA</small>
-    <h2>MAIS QUE MEIAS.<br>É ATITUDE.</h2>
-    <p>
-      A MT MEIAS chegou para trazer mais personalidade
-      para seus passos. Cores, estilo e uma pegada esportiva
-      para quem não abre mão de se movimentar.
-    </p>
-    <a class="cta" href="https://wa.me/5519996678210">FALE COM A GENTE</a>
-  </div>
+<section class="about" id="sobre">
+<div class="about-art">MT<span>.</span> MEIAS</div>
+<div>
+<small style="color:#ff368c;font-weight:900">SOBRE A MARCA</small>
+<h2>MAIS QUE MEIAS.<br>É ATITUDE.</h2>
+<p>A MT MEIAS chegou para trazer mais estilo e personalidade para seus passos. Nossa coleção RUN apresenta meias esportivas de cano alto em cinco cores especiais.</p>
+<p>Escolha sua cor favorita e faça parte da nossa coleção!</p>
+<a class="btn" href="https://wa.me/5519996678210">FALE COM A GENTE</a>
+</div>
+</section>
+
+<section class="cart-section" id="carrinho">
+<div class="heading">
+<small>SEU PEDIDO</small>
+<h2>MEU CARRINHO 🛒</h2>
+<p>Confira seus produtos antes de finalizar.</p>
+</div>
+<div class="cart-box">
+<h3>Seus produtos</h3>
+<div id="cart-items">Seu carrinho está vazio.</div>
+<div class="total" id="total">Total: R$ 0,00</div>
+<button class="checkout" onclick="checkout()">FINALIZAR PELO WHATSAPP</button>
+</div>
 </section>
 
 <section class="social">
-  <small style="color:#ff368c;font-weight:900;letter-spacing:3px">SIGA NOSSA MARCA</small>
-  <h2>@MT_MEIAS</h2>
-  <p>Acompanhe as novidades e conheça mais da MT MEIAS.</p>
-  <a class="instagram" href="https://instagram.com/mt_meias" target="_blank">
-    📸 SEGUIR NO INSTAGRAM
-  </a>
+<small style="color:#ff368c;font-weight:900">SIGA NOSSA MARCA</small>
+<h2>@MT_MEIAS</h2>
+<p>Acompanhe as novidades da MT MEIAS.</p>
+<a class="instagram" href="https://instagram.com/mt_meias" target="_blank">📸 SEGUIR NO INSTAGRAM</a>
 </section>
 
 <footer>
-  <div class="logo">MT<span style="color:#ff368c">.</span> MEIAS</div>
-  <p>SEU RITMO. SUA ATITUDE.</p>
-  <p>WhatsApp: (19) 99667-82210</p>
-  <p>© 2026 MT MEIAS. Todos os direitos reservados.</p>
+<div class="logo">MT<span>.</span> MEIAS</div>
+<p>SEU RITMO. SUA ATITUDE.</p>
+<p>WhatsApp: (19) 99667-8210</p>
+<p>Instagram: @mt_meias</p>
+<p>© 2026 MT MEIAS. Todos os direitos reservados.</p>
 </footer>
 
-<a class="whatsapp-float" href="https://wa.me/5519996678210" target="_blank">
-  ☎ WHATSAPP
-</a>
+<a class="whatsapp" href="https://wa.me/5519996678210" target="_blank">☎ WHATSAPP</a>
 
 <script>
+const WHATSAPP = "5519996678210";
+const PRECO = 22.79;
+
 const cores = [
-  {nome:"Preta", cor:"#171717"},
-  {nome:"Branca", cor:"#ffffff"},
-  {nome:"Pink", cor:"#ff368c"},
-  {nome:"Azul", cor:"#1676e8"},
-  {nome:"Verde", cor:"#19a76b"},
-  {nome:"Amarela", cor:"#f4cb16"}
+{nome:"Pink",cor:"#ff368c",logo:"#ffffff"},
+{nome:"Preta",cor:"#171717",logo:"#ffffff"},
+{nome:"Branca",cor:"#ffffff",logo:"#171717"},
+{nome:"Azul",cor:"#1676e8",logo:"#ffffff"},
+{nome:"Verde",cor:"#159447",logo:"#ffffff"}
 ];
 
-function desenhoMeia(cor) {
-  return `
-  <svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <filter id="shadow">
-        <feGaussianBlur stdDeviation="4"/>
-      </filter>
-    </defs>
-    <ellipse cx="110" cy="240" rx="55" ry="9" fill="#000" opacity=".12" filter="url(#shadow)"/>
-    <path d="M68 15 L151 15 L151 135
-      Q151 165 177 183
-      L197 199 Q209 212 194 225
-      Q183 238 163 235
-      L70 221 Q45 217 49 196
-      Q53 177 73 168
-      Q87 159 87 137 L87 15 Z"
-      fill="${cor}" stroke="#333" stroke-opacity=".22" stroke-width="2"/>
-    <path d="M68 15 L151 15 L151 53 L68 53 Z"
-      fill="${cor}" stroke="#333" stroke-opacity=".2" stroke-width="2"/>
-    <path d="M68 27 L151 27 M68 36 L151 36 M68 45 L151 45"
-      stroke="#888" stroke-opacity=".35" stroke-width="2"/>
-    <path d="M87 72 L151 72" stroke="#888" stroke-opacity=".18" stroke-width="2"/>
-    <path d="M85 91 L151 91" stroke="#888" stroke-opacity=".18" stroke-width="2"/>
-    <path d="M83 110 L151 110" stroke="#888" stroke-opacity=".18" stroke-width="2"/>
-    <path d="M76 174 Q100 190 140 194"
-      fill="none" stroke="#888" stroke-opacity=".25" stroke-width="3"/>
-    <text x="109" y="145" text-anchor="middle"
-      font-size="17" font-weight="900"
-      fill="${cor.toLowerCase()==='#ffffff' || cor==='#f4cb16' ? '#222':'#ffffff'}"
-      font-family="Arial">MT</text>
-  </svg>`;
+let carrinho = [];
+
+function meia(cor,logo){
+return `
+<svg viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="sombra" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="#000" stop-opacity=".2"/>
+<stop offset="45%" stop-color="#fff" stop-opacity=".12"/>
+<stop offset="100%" stop-color="#000" stop-opacity=".18"/>
+</linearGradient>
+</defs>
+
+<ellipse cx="125" cy="296" rx="75" ry="8" fill="#000" opacity=".12"/>
+
+<path d="M73 17 Q117 10 164 17 L164 192 Q164 215 185 226 L216 244 Q231 256 219 274 Q212 288 190 288 L100 288 Q72 288 69 268 Q65 248 77 231 Q92 213 91 190 Z"
+fill="${cor}" stroke="#777" stroke-opacity=".25" stroke-width="2"/>
+
+<path d="M73 17 Q117 10 164 17 L164 65 Q117 58 78 65 Z"
+fill="${cor}"/>
+
+<path d="M77 28 Q119 22 163 28 M78 39 Q119 33 164 39 M78 50 Q119 44 164 50"
+fill="none" stroke="${logo}" stroke-opacity=".28" stroke-width="2"/>
+
+<path d="M73 17 Q117 10 164 17 L164 192 Q164 215 185 226 L216 244 Q231 256 219 274 Q212 288 190 288 L100 288 Q72 288 69 268 Q65 248 77 231 Q92 213 91 190 Z"
+fill="url(#sombra)"/>
+
+<text x="133" y="155" transform="rotate(-90 133 155)"
+text-anchor="middle" font-family="Arial"
+font-size="36" font-weight="900" letter-spacing="2"
+fill="${logo}">RUN</text>
+
+<path d="M82 240 Q128 263 211 267"
+fill="none" stroke="${logo}" stroke-opacity=".2" stroke-width="2"/>
+</svg>`;
 }
 
-const lista = document.getElementById("product-list");
+document.getElementById("hero-sock").innerHTML=meia("#171717","#ffffff");
 
-cores.forEach(item => {
-  const imagem = "data:image/svg+xml;charset=utf-8," +
-    encodeURIComponent(desenhoMeia(item.cor));
+function renderizar(){
+const lista=document.getElementById("product-list");
+lista.innerHTML=cores.map((p,i)=>`
+<article class="product">
+<div class="product-image">
+<span class="tag">RUN COLLECTION</span>
+${meia(p.cor,p.logo)}
+</div>
+<div class="product-info">
+<h3>MEIA RUN ${p.nome.toUpperCase()}</h3>
+<p>Meia esportiva de cano alto com marca RUN.</p>
+<div class="price">R$ ${PRECO.toFixed(2).replace(".",",")}</div>
+<strong style="font-size:10px">COR: ${p.nome.toUpperCase()}</strong>
+<div class="color-row">
+${cores.map((c,j)=>`
+<button class="swatch ${i===j?"active":""}"
+style="background:${c.cor}"
+title="${c.nome}"
+onclick="selecionarCor(this)"></button>
+`).join("")}
+</div>
+<button class="add" onclick="adicionar(${i})">ADICIONAR AO CARRINHO +</button>
+</div>
+</article>
+`).join("");
+}
 
-  const mensagem = encodeURIComponent(
-    `Olá! Tenho interesse na meia esportiva ${item.nome} da MT MEIAS.`
-  );
+function selecionarCor(botao){
+botao.parentElement.querySelectorAll(".swatch").forEach(b=>b.classList.remove("active"));
+botao.classList.add("active");
+}
 
-  lista.innerHTML += `
-    <article class="product">
-      <div class="product-image">
-        <img src="${imagem}" alt="Meia esportiva ${item.nome} MT Meias">
-      </div>
-      <div class="product-info">
-        <h3>MEIA ${item.nome.toUpperCase()}</h3>
-        <p>MT MEIAS • SPORT COLLECTION</p>
-        <a class="product-button"
-          href="https://wa.me/5519996678210?text=${mensagem}"
-          target="_blank">
-          PEDIR PELO WHATSAPP →
-        </a>
-      </div>
-    </article>
-  `;
-});
+function adicionar(index){
+const produto=cores[index];
+const existente=carrinho.find(p=>p.nome===produto.nome);
+if(existente) existente.qtd++;
+else carrinho.push({nome:produto.nome,qtd:1});
+atualizar();
+}
+
+function quantidade(index,valor){
+carrinho[index].qtd+=valor;
+if(carrinho[index].qtd<=0)carrinho.splice(index,1);
+atualizar();
+}
+
+function atualizar(){
+let total=0;
+let qtd=0;
+const lista=document.getElementById("cart-items");
+
+if(carrinho.length===0){
+lista.innerHTML="Seu carrinho está vazio.";
+}else{
+lista.innerHTML=carrinho.map((p,i)=>{
+total+=p.qtd*PRECO;
+qtd+=p.qtd;
+return `
+<div class="cart-item">
+<div><strong>MEIA RUN ${p.nome.toUpperCase()}</strong>
+<p>R$ ${PRECO.toFixed(2).replace(".",",")} cada</p></div>
+<div class="quantity">
+<button onclick="quantidade(${i},-1)">−</button>
+<strong>${p.qtd}</strong>
+<button onclick="quantidade(${i},1)">+</button>
+<button class="remove" onclick="quantidade(${i},-${p.qtd})">✕</button>
+</div>
+</div>`;
+}).join("");
+}
+
+if(carrinho.length===0)total=0;
+document.getElementById("total").textContent="Total: R$ "+total.toFixed(2).replace(".",",");
+}
+
+function checkout(){
+if(carrinho.length===0){
+alert("Adicione uma meia ao carrinho primeiro!");
+return;
+}
+
+const produtos=carrinho.map(p=>
+`- Meia RUN ${p.nome}: ${p.qtd} unidade(s)`
+).join("\n");
+
+const total=carrinho.reduce((s,p)=>s+p.qtd*PRECO,0);
+
+const mensagem=
+"Olá! Vim pelo site da MT MEIAS e quero fazer um pedido:\n\n"+
+produtos+
+"\n\nTotal: R$ "+total.toFixed(2).replace(".",",")+
+"\n\nGostaria de finalizar meu pedido!";
+
+window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(mensagem),"_blank");
+}
+
+renderizar();
+atualizar();
 </script>
 
 </body>
