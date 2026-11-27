@@ -1,1 +1,284 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MT Meias | Performance & Estilo</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #101010;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: #c5ff36;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #c5ff36;
+}
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 8%;
+  background: linear-gradient(135deg, #101010, #202020);
+}
+
+.tag {
+  color: #c5ff36;
+  letter-spacing: 4px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: clamp(50px, 10vw, 100px);
+  font-weight: 900;
+  line-height: 0.95;
+  margin: 25px 0;
+}
+
+.hero h1 span {
+  color: #c5ff36;
+}
+
+.hero p {
+  color: #bdbdbd;
+  max-width: 520px;
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 16px 30px;
+  background: #c5ff36;
+  color: #101010;
+  text-decoration: none;
+  font-weight: bold;
+  width: fit-content;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+}
+
+section {
+  padding: 80px 8%;
+}
+
+section h2 {
+  font-size: 38px;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+
+section h2 span {
+  color: #c5ff36;
+}
+
+.about {
+  background: #181818;
+}
+
+.about p {
+  color: #bdbdbd;
+  max-width: 750px;
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1c1c1c;
+  border: 1px solid #333;
+  padding: 30px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  border-color: #c5ff36;
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.card p {
+  color: #bdbdbd;
+  line-height: 1.7;
+}
+
+.products {
+  background: #181818;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact p {
+  color: #bdbdbd;
+  line-height: 1.8;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+  border-top: 1px solid #333;
+}
+
+footer span {
+  color: #c5ff36;
+}
+
+@media (max-width: 600px) {
+  header {
+    gap: 20px;
+  }
+
+  nav a {
+    margin: 5px;
+  }
+
+  .hero {
+    min-height: 70vh;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">MT<span> MEIAS.</span></div>
+
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#marca">A marca</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<div class="hero" id="inicio">
+  <span class="tag">PERFORMANCE • CONFORTO • ESTILO</span>
+
+  <h1>MOVE<br>YOUR <span>GAME.</span></h1>
+
+  <p>
+    Mais do que meias. Uma combinação de performance,
+    identidade e estilo para quem vive o esporte dentro
+    e fora de campo.
+  </p>
+
+  <a class="btn" href="#produtos">EXPLORE A MT MEIAS</a>
+</div>
+
+<section class="about" id="marca">
+  <h2>O esporte é parte<br>de quem <span>somos.</span></h2>
+
+  <p>
+    A MT Meias nasce da conexão entre esporte, conforto
+    e estilo. Criada para quem não abre mão de se movimentar,
+    superar limites e expressar sua personalidade em cada detalhe.
+    Nosso propósito é transformar um item essencial em uma
+    experiência que acompanha cada passo, cada treino e cada jogo.
+  </p>
+</section>
+
+<section id="produtos" class="products">
+  <h2>FEITAS PARA <span>MOVIMENTAR.</span></h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Performance</h3>
+      <p>
+        Produtos pensados para acompanhar a intensidade
+        dos treinos, movimentos e desafios esportivos.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Conforto</h3>
+      <p>
+        Conforto e praticidade para acompanhar sua rotina,
+        do aquecimento ao último movimento.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Estilo</h3>
+      <p>
+        Design esportivo, personalidade e autenticidade
+        para levar o esporte além das quadras.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="contato" class="contact">
+  <h2>VISTA O <span>SEU MOVIMENTO.</span></h2>
+
+  <p>
+    Em breve, uma nova forma de viver o esporte.
+  </p>
+
+  <a class="btn" href="#inicio">VOLTAR AO TOPO</a>
+</section>
+
+<footer>
+  <p>© 2026 <span>MT MEIAS</span> • Performance & Estilo.</p>
+</footer>
+
+</body>
+</html>
